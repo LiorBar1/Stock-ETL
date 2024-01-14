@@ -1,0 +1,7 @@
+dags/__pycache__
+etl/__pycache__
+.vscode/
+files/data/**
+.viminfo
+.bash_history
+.cache/

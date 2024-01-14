@@ -1,0 +1,28 @@
+from datetime import datetime, timedelta
+from airflow.models.dag import DAG
+from airflow.operators.bash import BashOperator
+
+default_args = {
+    'owner': 'airflow',
+    'depends_on_past': False,
+    'email': ['test@gmail.com'],
+    'email_on_failure': False,
+    'email_on_retry': False,
+    'retries': 2,
+}
+dag = DAG(dag_id='load_daliy_stocks',
+          default_args=default_args,
+          schedule='0 05 * * *',
+          start_date=datetime(2020, 1, 1),
+          catchup=False
+          )
+t1_bash = """
+            python /opt/airflow/etl/load_stocks_from_api.py
+            """
+
+
+t1 = BashOperator(
+    task_id='load_stocks_from_api',
+    bash_command=t1_bash,
+    dag=dag)
+

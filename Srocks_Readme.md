@@ -63,5 +63,9 @@ Yaml + Dockerfile (see attached files)
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![image](https://github.com/Liorba1982/Stocks-ETL/assets/88455916/3ee86618-8cf7-4e14-b8e5-4935fd231646)
+
+![image](https://github.com/Liorba1982/Stocks-ETL/assets/88455916/46d63fb1-1b2b-4d0e-94a3-c2c0aa168343)
+
+
 

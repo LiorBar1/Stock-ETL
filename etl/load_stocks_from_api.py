@@ -13,7 +13,7 @@ import os
 
 script_name = str(os.path.basename(__file__))
 
-### slack configuration
+## slack configuration
 web_hook_url = 'personal channel webhook for process success' #please view readme file
 web_hook_url_failed_process = 'personal channel webhook for process failure' #please view readme file
 # the slack message body as variable

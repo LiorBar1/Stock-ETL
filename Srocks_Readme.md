@@ -67,5 +67,7 @@ Yaml + Dockerfile (see attached files)
 
 ![image](https://github.com/Liorba1982/Stocks-ETL/assets/88455916/46d63fb1-1b2b-4d0e-94a3-c2c0aa168343)
 
+![image](https://github.com/Liorba1982/Stocks-ETL/assets/88455916/41c3dc81-b0d0-4b8e-ac6e-e80ee636820a)
+
 
 

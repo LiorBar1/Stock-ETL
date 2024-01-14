@@ -84,6 +84,7 @@ More then 10% change
 ![image](https://github.com/Liorba1982/Stocks-ETL/assets/88455916/0e6bb2af-2582-4303-a7cc-75dc0dd3d969)
 
 Slack alert
+
 ![image](https://github.com/Liorba1982/Stocks-ETL/assets/88455916/4625b33d-0154-48cf-aef4-0ea06e0faa5c)
 
 

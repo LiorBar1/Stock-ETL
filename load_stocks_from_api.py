@@ -99,80 +99,19 @@ def load_mrr_stock(stocks_df):
 
 
 
-try:
-
-    #set symbols list from a csv file
-    with open(csv_stocks_file_path, 'r') as csvfile:
-        csvreader = csv.reader(csvfile)
-        next(csvreader)  # Skip the header
-
-        for row in csvreader:
-            # Assuming the stock symbol is in the first column (index 0)
-            company_symbol = row[0]
-            company_symbole_list.append(company_symbol)
-
-    #reset mrr table
-    trans = sql_alchemy_conn.begin()
-    sql_alchemy_conn.execute(text(truncate_mrr_stocks))
-    trans.commit()
-    print('mrr table was truncates')
-
-    #itterate on each stock symbole in the list
-    for company_symbole in company_symbole_list:
-        try:
-            #1. get stocks data from API
-            print('starting fetching stocks data for stock symbol {} at: {}'.format(company_symbole, datetime.now().strftime('%d/%m/%Y : %H:%M:%S')))
-            stocks_df=get_stocks_data(api_key, company_symbole)
-            print('stocks data fetch')
-
-            #2. load last week stocks data to postgress stagin table 
-            print('starting loading stocks data for stock {} to {} at: {}'.format(company_symbole, postgres_mrr_table_name, datetime.now().strftime('%d/%m/%Y : %H:%M:%S')))
-            load_mrr_stock(stocks_df)
-            print('finished loading stocks data to {}'.format(postgres_mrr_table_name))
-            
-        except Exception as e:
-            print(e, 'stock: ', company_symbole)
+#4. calculate trend: fetch changes with at least 10% change in stock rate compared to last day
+print('starting fetching data from view {} at: {}'.format(postgres_view, datetime.now().strftime('%d/%m/%Y : %H:%M:%S')))
+trans = sql_alchemy_conn.begin()
+results=sql_alchemy_conn.execute(text(select_from_vw_statement))
+print('finished fetching data from view {} at: {}'.format(postgres_view, datetime.now().strftime('%d/%m/%Y : %H:%M:%S')))
+trans.commit()
 
 
-    #load stocks data to postgres dimension table (sql alchemy transaction)
-    print('starting loading data to {} at: {}'.format(postgres_dim_table_name, datetime.now().strftime('%d/%m/%Y : %H:%M:%S')))
-    trans = sql_alchemy_conn.begin()
-    sql_alchemy_conn.execute(text(load_dim_stocks))
-    print('finished loading data to {} at: {}'.format(postgres_dim_table_name, datetime.now().strftime('%d/%m/%Y : %H:%M:%S')))
-    trans.commit()
-
-    #3. create view
-    print('starting creating view {} at: {}'.format(postgres_view, datetime.now().strftime('%d/%m/%Y : %H:%M:%S')))
-    trans = sql_alchemy_conn.begin()
-    sql_alchemy_conn.execute(text(create_view_dim_stocks))
-    print('finished creating view {} at: {}'.format(postgres_view, datetime.now().strftime('%d/%m/%Y : %H:%M:%S')))
-    trans.commit()
-    
-    #4. calculate trend: fetch changes with at least 10% change in stock rate compared to last day
-    print('starting fetching data from view {} at: {}'.format(postgres_view, datetime.now().strftime('%d/%m/%Y : %H:%M:%S')))
-    trans = sql_alchemy_conn.begin()
-    results=sql_alchemy_conn.execute(text(select_from_vw_statement))
-    print('finished fetching data from view {} at: {}'.format(postgres_view, datetime.now().strftime('%d/%m/%Y : %H:%M:%S')))
-    trans.commit()
-
-
-    if results.rowcount > 0:
-        # Iterate over the results and create a message
-        message = ''
-        for row in results:
-            message += str(row) + "\n"
-            print(row)
-
-        # Define your Slack message payload
-        slack_msg_success = {
-            'text': message}
-        # send success slack message if there was an increase of at least x percent from previouse to the last day
-        #requests.post(web_hook_url, data=json.dumps(slack_msg_success))
-    else:
-        print('no significant change in stocks')
-except psycopg2.Error as error:
-    print(f"Failed execute record to database for stock symbole {company_symbole} rollback: {error}")
-    ##requests.post(web_hook_url_failed_process, data=json.dumps(slack_msg_failure))
-
-
-
+if results.rowcount > 0:
+    df = pd.DataFrame(results.fetchall(), columns=results.keys())
+    message = df.to_markdown(index=False)
+    # Define your Slack message payload
+    slack_msg_success = {
+        'text': message}
+    # send success slack message if there was an increase of at least x percent from previouse to the last day
+    requests.post(web_hook_url, data=json.dumps(slack_msg_success))

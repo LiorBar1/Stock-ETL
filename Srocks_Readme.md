@@ -31,8 +31,17 @@ Docker desktop install
 
 https://docker.com/products/docker-desktop/
 
+* create airflow home directory, containing the following folders:
+dags, etl, logs, plugins, files/data, config
+* Place the following configurations files within etl folder:
 Yaml + Dockerfile (see attached files)
-
+* build airflow image from Dockerfile:
+  bash: docker build -t {image_name} 
+* init the database:
+* bash: docker-compose up airflow-init
+* load docker-compose:
+  bash: docker-compose up
+* airflow UI - http://localhost:8080/
 
 
     

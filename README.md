@@ -72,7 +72,11 @@ Yaml + Dockerfile (see attached files)
 
 ## Screenshots
 
+source data for API requests
+
 ![image](https://github.com/Liorba1982/Stocks-ETL/assets/88455916/c4bf484b-e455-41fa-9464-ee102e4eac30)
+
+Stocks data loaded to the database
 
 ![image](https://github.com/Liorba1982/Stocks-ETL/assets/88455916/3ee86618-8cf7-4e14-b8e5-4935fd231646)
 

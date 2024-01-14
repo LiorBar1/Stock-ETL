@@ -136,7 +136,7 @@ try:
 
     print('starting loadind table {} at: {}'.format(load_dim_stocks, datetime.now().strftime('%d/%m/%Y : %H:%M:%S')))
     trans = sql_alchemy_conn.begin()
-    results=sql_alchemy_conn.execute(text())
+    results=sql_alchemy_conn.execute(text(load_dim_stocks))
     print('finished loadind table {} at: {}'.format(load_dim_stocks, datetime.now().strftime('%d/%m/%Y : %H:%M:%S')))
     trans.commit()
 

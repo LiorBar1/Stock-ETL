@@ -158,9 +158,9 @@ class StocksETL:
 
 
 # Instantiate StocksETL class
-stocks_etl = StocksETL(api_key='your_api_key',
-                      web_hook_url='your_web_hook_url',
-                      web_hook_url_failed_process='your_web_hook_url_failed_process',
+stocks_etl = StocksETL(api_key='replace with an api key',
+                      web_hook_url='replace with a personal webhook url for succeeded processes',
+                      web_hook_url_failed_process='replace with a personal webhook url for failed processes',
                       csv_stocks_file_path='/opt/airflow/files/data/stocks.csv',
                       dwh_staging_connection_id=BaseHook.get_connection('dwh_staging_config'))
 

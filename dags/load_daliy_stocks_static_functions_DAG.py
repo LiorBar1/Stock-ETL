@@ -5,10 +5,10 @@ from airflow.operators.bash import BashOperator
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
-    'email': ['test@gmail.com'],
+    'email': ['personal email'],
     'email_on_failure': False,
     'email_on_retry': False,
-    'retries': 2,
+    'retries': 1,
 }
 dag = DAG(dag_id='load_daliy_stocks',
           default_args=default_args,

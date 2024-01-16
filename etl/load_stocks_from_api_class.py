@@ -45,7 +45,7 @@ class StocksETL:
         company_symbol_list = []
         with open(self.csv_stocks_file_path, 'r') as csvfile:
             csvreader = csv.reader(csvfile)
-            next(csvreader)  ## Skip the header
+            next(csvreader)  # Skip the header
             for row in csvreader:
                 company_symbol = row[0]
                 company_symbol_list.append(company_symbol)

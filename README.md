@@ -76,6 +76,10 @@ source data for API requests
 
 ![image](https://github.com/LiorBar1/Stock-ETL/assets/88455916/d495d95d-4e18-4f80-ba83-94398414e925)
 
+Airflow webserver DAG
+
+![image](https://github.com/LiorBar1/Stock-ETL/assets/88455916/4b1df1e4-d20c-4eb2-9322-8a6a51dfc1c7)
+
 Stocks data loaded to the database
 
 ![image](https://github.com/LiorBar1/Stock-ETL/assets/88455916/0854f0ab-9a90-4db9-a216-b90190c64001)

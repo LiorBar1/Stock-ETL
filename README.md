@@ -84,7 +84,7 @@ Stocks data loaded to the database
 
 ![image](https://github.com/LiorBar1/Stock-ETL/assets/88455916/0854f0ab-9a90-4db9-a216-b90190c64001)
 
-More then 10% change Slack alert
+More then 10% change Slack alert (test example only)
 
 ![image](https://github.com/LiorBar1/Stock-ETL/assets/88455916/7aeb2486-f8ec-409f-ae1f-844ff697fc1f)
 

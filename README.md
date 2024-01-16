@@ -74,23 +74,25 @@ Yaml + Dockerfile (see attached files)
 
 source data for API requests
 
-![image](https://github.com/Liorba1982/Stock-ETL/assets/88455916/c4bf484b-e455-41fa-9464-ee102e4eac30)
+
 
 Stocks data loaded to the database
 
-![image](https://github.com/Liorba1982/Stock-ETL/assets/88455916/3ee86618-8cf7-4e14-b8e5-4935fd231646)
+![image](https://github.com/LiorBar1/Stock-ETL/assets/88455916/3ee86618-8cf7-4e14-b8e5-4935fd231646)
 
-![image](https://github.com/Liorba1982/Stock-ETL/assets/88455916/46d63fb1-1b2b-4d0e-94a3-c2c0aa168343)
+![image](https://github.com/LiorBar1/Stock-ETL/assets/88455916/46d63fb1-1b2b-4d0e-94a3-c2c0aa168343)
 
-![image](https://github.com/Liorba1982/Stock-ETL/assets/88455916/41c3dc81-b0d0-4b8e-ac6e-e80ee636820a)
+![image](https://github.com/LiorBar1/Stock-ETL/assets/88455916/41c3dc81-b0d0-4b8e-ac6e-e80ee636820a)
+
+![image](https://github.com/LiorBar1/Stock-ETL/assets/88455916/0854f0ab-9a90-4db9-a216-b90190c64001)
 
 More then 10% change
 
-![image](https://github.com/Liorba1982/Stock-ETL/assets/88455916/0e6bb2af-2582-4303-a7cc-75dc0dd3d969)
+![image](https://github.com/LiorBar1/Stock-ETL/assets/88455916/0e6bb2af-2582-4303-a7cc-75dc0dd3d969)
 
 Slack alert
 
-![image](https://github.com/Liorba1982/Stock-ETL/assets/88455916/4625b33d-0154-48cf-aef4-0ea06e0faa5c)
+![image](https://github.com/LiorBar1/Stock-ETL/assets/88455916/4625b33d-0154-48cf-aef4-0ea06e0faa5c)
 
 
 

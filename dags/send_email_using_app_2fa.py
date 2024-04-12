@@ -1,7 +1,7 @@
 
-##a new 2FA is needed to be added to google account for an app (name it airflow)
-##an http connection is needed to be added to Airflow with the app user and pass
-##connection name is needed to be configured in the send_email_task = EmailOperator(
+#a new 2FA is needed to be added to google account for an app (name it airflow)
+#an http connection is needed to be added to Airflow with the app user and pass
+#connection name is needed to be configured in the send_email_task = EmailOperator(
 
 
 from airflow import DAG

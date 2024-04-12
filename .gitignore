@@ -5,3 +5,4 @@ files/data/**
 .viminfo
 .bash_history
 .cache/
+airflow.cfg
